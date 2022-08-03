@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+.emotePage {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 200px max-content;
+  background-color: #ffb6bb;
+  background-image: url("../rabbit2.jpg");
+  background-repeat: repeat;
+}
+
+.emotePageHeaderContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  background-color: rgba(255, 182, 187, 0.97);
+  box-shadow: 1px 10px 19px 10px rgb(255, 182, 187);
+}
+.emotePageHeaderContainer > .emotePageHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 1200px;
+}
+.emotePageHeaderContainer > .emotePageHeader > .emotePageTitle {
+  height: 130px;
+}
+.emotePageHeaderContainer > .emotePageHeader > .emotePageTitle > img {
+  height: 100%;
+}
+.emotePageHeaderContainer > .emotePageHeader > .emotePageImage {
+  height: 150px;
+}
+.emotePageHeaderContainer > .emotePageHeader > .emotePageImage > img {
+  border-radius: 100px;
+  height: 100%;
+}
+
+.emoteGridContainer {
+  width: 1200px;
+  justify-self: center;
+  padding: 1rem 0;
+  background-color: rgba(255, 182, 187, 0.97);
+}
+.emoteGridContainer > .emoteGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 200px);
+  gap: 1rem;
+  justify-content: center;
+}
+.emoteGridContainer > .emoteGrid > .emoteCard {
+  display: grid;
+  grid-template-rows: auto 40px auto;
+  justify-items: center;
+  background-color: rgb(100, 100, 100);
+  height: 220px;
+  padding: 1rem;
+  overflow: hidden;
+}
+.emoteGridContainer > .emoteGrid > .emoteCard > .emoteCardImage {
+  width: 100px;
+  max-height: 107px;
+}
+.emoteGridContainer > .emoteGrid > .emoteCard > .emoteCardImage > img {
+  width: 100%;
+  height: 100%;
+}
+.emoteGridContainer > .emoteGrid > .emoteCard > .emoteCardTitle {
+  align-self: center;
+}
+
+/*# sourceMappingURL=app.css.map */

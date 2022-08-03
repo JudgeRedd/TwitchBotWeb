@@ -1,0 +1,62 @@
+﻿@page "/"
+@using System.Data.SqlClient;
+@using Entities;
+@using Dapper;
+
+@inject IConfiguration Configuration
+
+<div class="emotePage">
+
+    <div class="emotePageHeaderContainer">
+        <div class="emotePageHeader">
+            <div class="emotePageImage">
+                <img src="../JL.png" alt="" srcset="">
+            </div>
+            <div class="emotePageTitle">
+                <img src="../JulynnEmotes2.png" alt="" srcset="">
+            </div>
+        </div>
+    </div>
+
+    
+
+    <div class="emoteGridContainer">
+        <div class="emoteGrid">
+            @if(emotes != null)
+            {
+                @foreach (var item in emotes)
+                {
+                    <div class="emoteCard">
+                        <div class="emoteCardImage">
+                            <img src="@item.emote_url">
+                        </div>
+                        <div class="emoteCardTitle">
+                            <h2>@item.emote_name</h2>
+                        </div>
+                        <div class="emoteCardCount">
+                            <h1>@item.count</h1>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+
+</div>
+
+@code {
+    
+    IEnumerable<Emote> emotes;
+    private string _connectionString;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        _connectionString = Configuration.GetConnectionString("DefaultConnection");
+
+        var db = new SqlConnection(_connectionString);
+        await db.OpenAsync();
+        emotes = await db.QueryAsync<Emote>("SELECT * FROM EmoteSum ORDER BY count DESC");
+        await db.CloseAsync();
+    }
+
+}
